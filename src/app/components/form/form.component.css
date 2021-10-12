@@ -9,6 +9,7 @@
     display: grid;
     place-content: center;
     border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(124, 142, 252, 0.2);
 }
 .form{
     display: flex;

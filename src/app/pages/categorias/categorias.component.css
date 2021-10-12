@@ -1,0 +1,73 @@
+.form__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-top: 90px;
+}
+.form{
+    border: 1px solid rgba(124, 142, 252, 0.3);
+    border-radius: 0.4rem;
+    overflow: hidden;
+    padding: 0.3rem;
+    background: white;
+    box-shadow: 0 10px 20px rgba(124, 142, 252, 0.1);
+}
+.form__input{
+    width: 500px;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.4rem 0 0 0.4rem;
+    outline: none;
+    color: var(--black-85);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.form__btn{
+    padding: 1rem 0.8rem;
+    border: none;
+    background-color: var(--primary);
+    border-radius: 0.3rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+/* LISTA */
+.categorias{
+    background-color: white;
+    border-radius: 0.5rem;
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(124, 142, 252, 0.2);
+}
+.categoria__item{
+    display: flex;
+    padding: 0.9rem 1rem;
+    color: var(--black-100);
+    border-bottom: 1px solid rgba(124, 142, 252, 0.1);
+}
+.categoria__item:last-child{
+    border-bottom: none;
+}
+
+.categoria__title{
+    margin-right: auto;
+}
+.categoria__btn{
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn__editar{
+    margin-right: 1rem;
+    background-color: var(--secondary);
+    color: white;
+}
+.btn__eliminar{
+    background-color: #d33030;
+    color: white;
+}

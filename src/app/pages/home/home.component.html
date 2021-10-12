@@ -5,6 +5,20 @@
         <ul class="categorias__list">
             <li class="categorias__item" *ngFor="let categoria of categorias"><app-categoria [categoria]="categoria"></app-categoria></li>
         </ul>
+        <div class="total">
+            <h3 class="total__titulo">Total</h3>
+            <span class="total__cantidad">{{ 2100 | currency }}</span>
+        </div>
+        <div class="data">
+            <div class="data__item">
+                <h3 class="data__title">Presupuesto</h3>
+                <span class="data__cantidad">{{ 0000 | currency }}</span>
+            </div>
+            <div class="data__item">
+                <h3 class="data__title">Diferencia</h3>
+                <span class="data__cantidad">{{ 0000 | currency }}</span>
+            </div>
+        </div>
     </section>
     <section class="listado">
         <app-lista-compras [compras]="compras"></app-lista-compras>
