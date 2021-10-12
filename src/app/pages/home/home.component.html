@@ -1,0 +1,12 @@
+<app-form></app-form>
+
+<section class="content">
+    <section class="categorias">
+        <ul class="categorias__list">
+            <li class="categorias__item" *ngFor="let categoria of categorias"><app-categoria [categoria]="categoria"></app-categoria></li>
+        </ul>
+    </section>
+    <section class="listado">
+        <app-lista-compras [compras]="compras"></app-lista-compras>
+    </section>
+</section>

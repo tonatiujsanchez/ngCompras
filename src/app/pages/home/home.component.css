@@ -1,0 +1,40 @@
+.content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.categorias{
+    box-sizing: border-box;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 2.5rem 1rem;
+    min-width: 400px;
+    width: 40%;
+}
+.categorias__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+.categorias__item{
+    cursor: pointer;
+}
+.categorias__item.active{
+    background: linear-gradient(90deg, #96a6ff, #6a80ff );
+    color: white;
+    border-radius: 0.5rem;
+}
+
+
+/* LISTADO */
+.listado{
+    box-sizing: border-box;
+    border-radius: 1rem;
+    background-color: white;
+    min-width: 600px;
+    width: 55%;
+    padding: 2.5rem 2rem;
+}

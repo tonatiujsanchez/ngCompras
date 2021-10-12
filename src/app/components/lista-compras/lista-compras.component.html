@@ -1,0 +1,18 @@
+<section>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Categoria</th>
+                <th>Costo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let compra of compras">
+                <td>{{ compra.concepto }}</td>
+                <td>{{ compra.categoria }}</td>
+                <td>{{ compra.costo | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

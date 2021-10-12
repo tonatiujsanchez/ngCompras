@@ -1,0 +1,14 @@
+.table{
+    margin: 0 auto;
+}
+th{
+    text-align: left;
+    padding: 0.5rem 2rem;
+    text-transform: uppercase;
+}
+td{
+    padding: 0.5rem 2rem;
+}
+tbody tr:nth-child(even){
+    background-color: rgba(124, 142, 252, 0.1);
+}
