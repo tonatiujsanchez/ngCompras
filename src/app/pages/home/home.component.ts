@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -6,24 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  categorias = [
-    {
-      titulo: 'Mercado',
-      total: 650
-    },
-    {
-      titulo: 'Bodega',
-      total: 1050
-    },
-    {
-      titulo: 'Chedraui',
-      total: 1050
-    },
-    {
-      titulo: 'Fruteria',
-      total: 614.10
-    }
-  ];
+  categorias = this._data.allCategoria;
 
   compras: any = [
     {
@@ -57,7 +41,9 @@ export class HomeComponent implements OnInit {
       categoria: 'Bodega'
     }
   ]
-  constructor() { }
+  constructor(
+    private _data: DataService
+  ) { }
 
   ngOnInit(): void {
   }

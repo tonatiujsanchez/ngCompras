@@ -1,30 +1,25 @@
 <section class="form__container">
-    <form class="form">
-        <input type="text" class="form__input">
-        <button class="form__btn">+ADD</button>
+    <form (ngSubmit)="aceptarCategoria()"
+            class="form" 
+            
+            [class.focus]="isFocus">
+        <input type="text" 
+        class="form__input" 
+        (focus)="isFocus = true" 
+        (blur)="isFocus = false"
+        name="categoria"
+        [(ngModel)]="nuevaCategoria.titulo"
+        #txtCategoria>
+        <input type="submit" class="form__btn" value="{{ nuevaCategoria.id ? 'Editar': 'Agregar' }}">
+        <!-- <input type="submit" class="form__btn" value="Editar"> -->
     </form>
 </section>
 <section class="categorias">
     <ul>
-        <li class="categoria__item">
-            <span class="categoria__title">Categoria</span>
-            <button class="categoria__btn btn__editar"><i class='bx bxs-edit-alt' ></i> Editar</button>
-            <button class="categoria__btn btn__eliminar"><i class='bx bxs-trash'></i> Eliminar</button>
-        </li>
-        <li class="categoria__item">
-            <span class="categoria__title">Categoria</span>
-            <button class="categoria__btn btn__editar"><i class='bx bxs-edit-alt' ></i> Editar</button>
-            <button class="categoria__btn btn__eliminar"><i class='bx bxs-trash'></i> Eliminar</button>
-        </li>
-        <li class="categoria__item">
-            <span class="categoria__title">Categoria</span>
-            <button class="categoria__btn btn__editar"><i class='bx bxs-edit-alt' ></i> Editar</button>
-            <button class="categoria__btn btn__eliminar"><i class='bx bxs-trash'></i> Eliminar</button>
-        </li>
-        <li class="categoria__item">
-            <span class="categoria__title">Categoria</span>
-            <button class="categoria__btn btn__editar"><i class='bx bxs-edit-alt' ></i> Editar</button>
-            <button class="categoria__btn btn__eliminar"><i class='bx bxs-trash'></i> Eliminar</button>
+        <li class="categoria__item" *ngFor="let categoria of categorias; let idx = index">
+            <span class="categoria__title">{{ categoria.titulo }}</span>
+            <button class="categoria__btn btn__editar" (click)="modificarCategoria( idx )">Editar</button>
+            <button class="categoria__btn btn__eliminar" (click)="eliminarCategoria( idx )">Eliminar</button>
         </li>
     </ul>
 </section>

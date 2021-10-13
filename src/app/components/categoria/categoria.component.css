@@ -1,10 +1,15 @@
 .categoria{
     border: 1px solid rgba(124, 142, 252, 0.3);
     min-width: 160px;
+    max-width: 160px;
     height: 100px;
     border-radius: 0.5rem;
+    padding: 0.5rem;
     display: grid;
     place-content: center;
+}
+.categoria__title{
+    text-align: center;
 }
 
 .categoria__total{
