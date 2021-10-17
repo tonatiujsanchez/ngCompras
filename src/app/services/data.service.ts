@@ -6,6 +6,13 @@ import { Categoria } from '../interfaces/categorias.interface';
 })
 export class DataService {
 
+  public presupuesto!: number;
+  public totalCompras: number = 0;
+
+  public get restante(): number{
+    return (this.presupuesto - this.totalCompras);
+  }
+
   private categorias:Categoria[] = [
     {
       titulo: 'Mercado',

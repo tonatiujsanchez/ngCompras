@@ -9,6 +9,13 @@ import { DataService } from '../../services/data.service';
 export class HomeComponent implements OnInit {
   categorias = this._data.allCategoria;
 
+  get presupuesto(): number{
+    return this._data.presupuesto | 0;
+  }
+  get restante(): number{
+    return this._data.restante | 0;
+  }
+
   compras: any = [
     {
       concepto: 'Suavitel',

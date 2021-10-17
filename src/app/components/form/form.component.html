@@ -1,10 +1,10 @@
 <section class="form__container">
     <form class="form">
         <div class="form__control form__concepto">
-            <input id="concepto" type="text" class="form__input" placeholder="Concepto">
+            <input id="concepto" type="text" class="form__input" placeholder="Concepto" [disabled]="presupuesto == null || presupuesto == undefined">
         </div>
         <div class="fomr__control form__costo">
-            <input id="costo" type="text" class="form__input" placeholder="$">
+            <input id="costo" type="text" class="form__input" placeholder="$" [disabled]="presupuesto == null || presupuesto == undefined">
         </div>
     </form>
 </section>

@@ -7,16 +7,16 @@
         </ul>
         <div class="total">
             <h3 class="total__titulo">Total</h3>
-            <span class="total__cantidad">{{ 2100 | currency }}</span>
+            <span class="total__cantidad">{{ 0 | currency }}</span>
         </div>
         <div class="data">
             <div class="data__item">
                 <h3 class="data__title">Presupuesto</h3>
-                <span class="data__cantidad">{{ 0000 | currency }}</span>
+                <span class="data__cantidad">{{ presupuesto | currency }}</span>
             </div>
             <div class="data__item">
-                <h3 class="data__title">Diferencia</h3>
-                <span class="data__cantidad">{{ 0000 | currency }}</span>
+                <h3 class="data__title">Restante</h3>
+                <span class="data__cantidad">{{ restante | currency }}</span>
             </div>
         </div>
     </section>
