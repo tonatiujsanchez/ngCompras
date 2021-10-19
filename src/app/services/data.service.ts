@@ -25,45 +25,49 @@ export class DataService {
     }
   ];
 
-  private compras: Compra[] = [
-    {
-      concepto: 'Suavitel',
-      costo: 86,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Javon Axión',
-      costo: 60,
-      categoria: 'General'
-    },
-    {
-      concepto: 'Café',
-      costo: 85,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Cocholate',
-      costo: 89.50,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Pasta dental',
-      costo: 48.90,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Leche Santa Clara',
-      costo: 51,
-      categoria: 'Bodega'
-    }
-  ];
+  // private compras: Compra[] = [
+  //   {
+  //     concepto: 'Suavitel',
+  //     costo: 86,
+  //     categoria: 'Bodega'
+  //   },
+  //   {
+  //     concepto: 'Javon Axión',
+  //     costo: 60,
+  //     categoria: 'General'
+  //   },
+  //   {
+  //     concepto: 'Café',
+  //     costo: 85,
+  //     categoria: 'Bodega'
+  //   },
+  //   {
+  //     concepto: 'Cocholate',
+  //     costo: 89.50,
+  //     categoria: 'Bodega'
+  //   },
+  //   {
+  //     concepto: 'Pasta dental',
+  //     costo: 48.90,
+  //     categoria: 'Bodega'
+  //   },
+  //   {
+  //     concepto: 'Leche Santa Clara',
+  //     costo: 51,
+  //     categoria: 'Bodega'
+  //   }
+  // ];
+  private compras: Compra[] = [];
 
   get allCategoria(): Categoria[]{
     return this.categorias;
   }
 
   get allcompras(): Compra[]{
-    return this.compras;
+    if( this.categoriaActiva === 'General' ){
+      return this.compras;
+    }    
+    return this.compras.filter( compra => compra.categoria === this.categoriaActiva );
   }
 
 
@@ -97,33 +101,16 @@ export class DataService {
   }
 
   
-  // TODO: Obtener el total por categoria y asignarlo a la categoria correcpondiente del Arreglo de Categorias. 
-  totalPorCategoria( categoria: string ){
 
-    if( categoria === 'General' ){
-      return;
-    }
-    // let categoriaFilter = this.categorias.filter( category => category.titulo === categoria );
-
+  totalPorCategoria(){
     this.categorias.forEach( cate =>{
-      if( cate.titulo === categoria ){
-        
-      }
+      let total: number = 0;
+      this.comprasPorCategoria( cate.titulo ).forEach( compra =>{ 
+        total = total + compra.costo!;
+      })
+      
+      cate.total = total;
     });
-
-    
-    // Compras
-    this.comprasPorCategoria( categoria ).forEach( compra => {
-
-      this.categorias.forEach( cate =>{
-        if( cate.titulo === categoria ){
-          cate.total = cate.total + (compra.costo || 0);
-        }
-      }) 
-
-    })
-     console.log(this.categorias);
-     
   }
 
   comprasPorCategoria( categoria: string ): Compra[]{
@@ -133,6 +120,8 @@ export class DataService {
   agregarComprar( compra:Compra ){
     const compraNueva = { ...compra, categoria: this.categoriaActiva }
     this.compras.push( compraNueva );
+    
+    this.totalPorCategoria();    
   }
   
   
