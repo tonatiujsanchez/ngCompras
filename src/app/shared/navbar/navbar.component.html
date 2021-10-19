@@ -1,7 +1,7 @@
 <header class="header">
     <h1 class="header__logo">Compras</h1>
-    <!-- TODO: Revisar el doble click para activar el form del presupuesto -->
     <form class="header__form" (ngSubmit)="agregarPresupuesto()" (dblclick)="editarPresupuesto()">
+        
         <span class="header__dolar">$</span>
         <input class="header__input" 
                 type="number"
@@ -10,7 +10,10 @@
                 name="presupuesto" 
                 [(ngModel)]="presupuesto"
                 [disabled]="inputInactive">
-        <input type="submit" class="header__btn" [ngClass]="{'btn-presupuesto': !inputInactive}" value="+ADD" [disabled]="inputInactive">
+
+        <input type="submit" class="header__btn" 
+                [ngClass]="{'btn-presupuesto': !inputInactive}" 
+                value="+ADD" [disabled]="inputInactive">
     </form>
     <nav class="nav">
         <ul class="nav__list">

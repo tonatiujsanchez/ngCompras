@@ -3,20 +3,25 @@
 <section class="content">
     <section class="categorias">
         <ul class="categorias__list">
-            <li class="categorias__item" *ngFor="let categoria of categorias"><app-categoria [categoria]="categoria"></app-categoria></li>
+            <li class="categorias__item"
+                [ngClass]="{'active': categoriaActiva === categoria.titulo}" 
+                *ngFor="let categoria of categorias" 
+                (click)="seleccionaCategoria( categoria.titulo )">
+                <app-categoria [categoria]="categoria"></app-categoria>
+            </li>
         </ul>
         <div class="total">
             <h3 class="total__titulo">Total</h3>
-            <span class="total__cantidad">{{ 0 | currency }}</span>
+            <span class="total__cantidad">{{ totalCompras | currency }}</span>
         </div>
         <div class="data">
             <div class="data__item">
                 <h3 class="data__title">Presupuesto</h3>
-                <span class="data__cantidad">{{ presupuesto | currency }}</span>
+                <span class="data__cantidad">{{ (presupuesto || 0) | currency }}</span>
             </div>
             <div class="data__item">
                 <h3 class="data__title">Restante</h3>
-                <span class="data__cantidad">{{ restante | currency }}</span>
+                <span class="data__cantidad">{{ (restante || 0) | currency }}</span>
             </div>
         </div>
     </section>

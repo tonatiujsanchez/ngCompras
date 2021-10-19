@@ -1,10 +1,23 @@
 <section class="form__container">
-    <form class="form">
+    <form class="form" (ngSubmit)="agregarCompra()">
         <div class="form__control form__concepto">
-            <input id="concepto" type="text" class="form__input" placeholder="Concepto" [disabled]="presupuesto == null || presupuesto == undefined">
+            <input id="concepto" type="text" 
+                class="form__input" 
+                placeholder="Concepto"
+                name="concepto"
+                [(ngModel)]="nuevaCompra.concepto"
+                [disabled]="presupuesto == null || presupuesto == undefined"
+                #txtConcepto>
         </div>
         <div class="fomr__control form__costo">
-            <input id="costo" type="text" class="form__input" placeholder="$" [disabled]="presupuesto == null || presupuesto == undefined">
+            <input id="costo" 
+                type="number" 
+                class="form__input"
+                name="costo" 
+                [(ngModel)]="nuevaCompra.costo"
+                placeholder="$" 
+                [disabled]="presupuesto == null || presupuesto == undefined">
         </div>
+        <input type="submit">
     </form>
 </section>

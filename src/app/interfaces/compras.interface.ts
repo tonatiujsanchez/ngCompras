@@ -1,5 +1,5 @@
 export interface Compra{
     concepto: string;
-    costo: number;
+    costo?: number;
     categoria: string;
 }

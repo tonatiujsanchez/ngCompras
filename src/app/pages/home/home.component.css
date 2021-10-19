@@ -24,8 +24,9 @@
     cursor: pointer;
 }
 .categorias__item.active{
-    background: linear-gradient(90deg, #96a6ff, #6a80ff );
-    color: white;
+    outline: 2px solid #6a80ff;
+    /* background: linear-gradient(90deg, #96a6ff, #6a80ff ); */
+    /* color: white; */
     border-radius: 0.5rem;
 }
 .total{

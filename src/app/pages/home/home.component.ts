@@ -8,51 +8,41 @@ import { DataService } from '../../services/data.service';
 })
 export class HomeComponent implements OnInit {
   categorias = this._data.allCategoria;
+  compras = this._data.allcompras;
+
+
+  get totalCompras(): number{
+    return this._data.total;
+  }
 
   get presupuesto(): number{
-    return this._data.presupuesto | 0;
+    return this._data.presupuesto;
   }
-  get restante(): number{
-    return this._data.restante | 0;
+  get restante(): number{    
+    return this._data.restante;
   }
 
-  compras: any = [
-    {
-      concepto: 'Suavitel',
-      costo: 86,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Javon Axión',
-      costo: 60,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Café',
-      costo: 85,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Cocholate',
-      costo: 89.50,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Pasta dental',
-      costo: 48.90,
-      categoria: 'Bodega'
-    },
-    {
-      concepto: 'Leche Santa Clara',
-      costo: 51,
-      categoria: 'Bodega'
-    }
-  ]
+  get categoriaActiva(): string{
+    return this._data.categoriaActiva;
+  }
+
+
   constructor(
     private _data: DataService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  seleccionaCategoria( categoria: string ){
+
+    if( this._data.categoriaActiva === categoria ){
+      this._data.categoriaActiva = 'General';
+      return;
+    }else{
+      this._data.categoriaActiva = categoria;
+    }
+
   }
 
 }
