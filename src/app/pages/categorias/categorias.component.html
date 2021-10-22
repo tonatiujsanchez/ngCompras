@@ -11,10 +11,12 @@
         [(ngModel)]="nuevaCategoria.titulo"
         #txtCategoria>
         <input type="submit" class="form__btn" value="{{ nuevaCategoria.id ? 'Editar': 'Agregar' }}">
-        <!-- <input type="submit" class="form__btn" value="Editar"> -->
     </form>
 </section>
-<section class="categorias">
+<div class="sin-categorias" *ngIf="categorias.length <= 0">
+    <span>No hay categorias agregadas</span>
+</div>
+<section class="categorias" *ngIf="categorias.length > 0">
     <ul>
         <li class="categoria__item" *ngFor="let categoria of categorias; let idx = index">
             <span class="categoria__title">{{ categoria.titulo }}</span>

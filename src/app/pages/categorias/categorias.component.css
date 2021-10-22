@@ -37,6 +37,13 @@
     cursor: pointer;
 }
 /* LISTA */
+.sin-categorias{
+    text-align: center;
+    font-weight: 600;
+    color: rgba(124, 142, 252, 0.4);
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
 .categorias{
     background-color: white;
     border-radius: 0.5rem;

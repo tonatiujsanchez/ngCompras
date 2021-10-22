@@ -12,3 +12,14 @@ td{
 tbody tr:nth-child(even){
     background-color: rgba(124, 142, 252, 0.1);
 }
+.eliminar__compra{
+    height: 41px;
+    display: flex;
+    align-items: center;
+    background: white;
+}
+.eliminar__icon{
+    display: block;
+    background-color: white;
+    cursor: pointer;
+}

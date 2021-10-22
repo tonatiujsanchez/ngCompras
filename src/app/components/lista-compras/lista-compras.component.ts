@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { Compra } from '../../interfaces/compras.interface';
 
 @Component({
   selector: 'app-lista-compras',
@@ -8,9 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListaComprasComponent implements OnInit {
 
   @Input() compras:any = [];
-  constructor() { }
+  constructor(
+    private _data: DataService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  eliminarCompra( compra: Compra, idx: number ){
+    this._data.eliminarCompra(compra, idx);
+    
   }
 
 }

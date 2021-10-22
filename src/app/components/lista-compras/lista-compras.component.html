@@ -8,10 +8,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let compra of compras">
+            <tr *ngFor="let compra of compras; let idx = index">
                 <td>{{ compra.concepto }}</td>
                 <td>{{ compra.categoria }}</td>
                 <td>{{ compra.costo | currency }}</td>
+                <div class="eliminar__compra">
+                    <span class="eliminar__icon" (click)="eliminarCompra(compra, idx)">X</span>
+                </div>
             </tr>
         </tbody>
     </table>

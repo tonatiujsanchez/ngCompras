@@ -7,22 +7,22 @@ import { Compra } from '../interfaces/compras.interface';
 })
 export class DataService {
   private categorias:Categoria[] = [
-    {
-      titulo: 'Mercado',
-      total: 0
-    },
-    {
-      titulo: 'Bodega',
-      total: 0
-    },
-    {
-      titulo: 'Chedraui',
-      total: 0
-    },
-    {
-      titulo: 'Fruteria',
-      total: 0
-    }
+    // {
+    //   titulo: 'Mercado',
+    //   total: 0
+    // },
+    // {
+    //   titulo: 'Bodega',
+    //   total: 0
+    // },
+    // {
+    //   titulo: 'Chedraui',
+    //   total: 0
+    // },
+    // {
+    //   titulo: 'Fruteria',
+    //   total: 0
+    // }
   ];
 
   // private compras: Compra[] = [
@@ -113,6 +113,7 @@ export class DataService {
     });
   }
 
+  // Compras
   comprasPorCategoria( categoria: string ): Compra[]{
     return this.compras.filter( compra => compra.categoria === categoria );
   }
@@ -120,10 +121,20 @@ export class DataService {
   agregarComprar( compra:Compra ){
     const compraNueva = { ...compra, categoria: this.categoriaActiva }
     this.compras.push( compraNueva );
-    
     this.totalPorCategoria();    
   }
   
+  eliminarCompra( compra:Compra, idx:number ){
+    if( this.categoriaActiva === 'General' ){
+      this.compras.splice( idx, 1 );
+    }else{
+      this.compras.forEach( (comp, index) =>{
+        if( comp.concepto === compra.concepto ){
+          this.compras.splice( index, 1 );
+        }
+      })
+    }
+  }
   
 
 }
